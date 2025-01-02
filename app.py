@@ -25,7 +25,7 @@ if 'rag_chain' not in st.session_state:
     def initialize_rag_system():
         # Initialize embeddings and load existing vector store
         embeddings = HuggingFaceEmbeddings(model_name="BAAI/bge-small-en-v1.5")
-        db = FAISS.load_local("bge_small_faiss", embeddings, allow_dangerous_deserialization=True)
+        db = FAISS.load_local("embeddings", embeddings, allow_dangerous_deserialization=True)
         
         # Initialize LLM
         llm = ChatGroq(
